@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Usuario>
+
+@{
+    ViewData["Title"] = "Pesquisar Usuario";
+}
+
+<h1>- Pesquisar Usuario -</h1>
+
+<section class="content">
+    <div class="gridContainer">
+        @if (Model != null && Model.Any())
+        {
+            foreach (Usuario usuario in Model)
+            {
+                <div class="hexagon">
+                    <div class="shape">
+                        <img src="~/Images/@usuario.Foto_Perfil" alt="">
+                        <div class="content">
+                            <div>
+                                <a asp-route-id="@usuario.Id" asp-controller="Usuario" asp-action="UsuarioVisualizar">
+                                    <h3>@usuario.Nome_usuario</h3>
+                                    <p>@usuario.Descricao</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</section>

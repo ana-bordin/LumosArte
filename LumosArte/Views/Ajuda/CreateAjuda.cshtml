@@ -1,0 +1,46 @@
+﻿@model Ajuda
+
+@{
+    ViewData["Title"] = "Ajuda";
+}
+<link rel="stylesheet" href="~/css/site-form2.css" asp-append-version="true" />
+<div>
+    <form asp-controller="Ajuda" asp-action="CreateAjuda" method="post">
+        <fieldset>
+            <legend><h4> - Ajuda - </h4></legend>
+            <span>
+                Já visitou nossa F.A.Q?
+            </span>
+            <a asp-area="" asp-controller="Ajuda" asp-action="Index" style="color: black; display: block; text-align: center;">
+                Clique Aqui Para Ver as Dúvidas Frequentes
+            </a>
+
+            <div>
+                <label for="Nome">Nome</label>
+                <input asp-for="Nome" type="text">
+            </div>
+            <div>
+                <label for="Email">Email</label>
+                <input asp-for="Email" type="email" required>
+            </div>
+            <div>
+                <label for="Assunto_Id">Assunto</label>
+                <select asp-for="Assunto_Id" style="display: block;" required>
+                    @await Component.InvokeAsync("AssuntoView")
+                </select>
+            </div>
+            <div>
+                <label for="Duvida">Dúvida</label>
+                <textarea asp-for="Duvida" cols="30" rows="10" required></textarea>
+                <button type="submit" class="btn btn-outline-dark btn-sm btn-block" style="width:95%;">
+                    Enviar
+                </button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

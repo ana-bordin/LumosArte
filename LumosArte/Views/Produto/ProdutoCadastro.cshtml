@@ -1,0 +1,58 @@
+﻿@model Produto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lumos Arte - Cadastro Produto</title>
+    <link rel="stylesheet" href="~/css/reset.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site-form.css" asp-append-version="true" />
+
+</head>
+
+<body>
+    <header class="header">
+        <a asp-area="" asp-controller="Produto" asp-action="Index">
+            <img src="~/images/Logo.png" alt="Logo da LumosArte" id="logo">
+        </a>
+    </header>
+    <main>
+        <form asp-controller="Produto" asp-action="ProdutoCadastro" method="post" id="cadastro">
+            <fieldset>
+                <legend class="principal">- Cadastre Seus Produtos -</legend>
+                <div class="dados">
+                    <fieldset>
+                        <legend>Dados do Produto</legend>
+                        <label for="Nome">Nome do Produto</label>
+                        <input asp-for="Nome" type="text" placeholder="digite o nome do Produto" id="produto" required>
+                        <label for="Descricao">Descrição do Produto</label>
+                        <textarea asp-for="Descricao" rows="4" cols="25" class="form-control"></textarea>
+                        
+                        <label for="Categoria_Id">Categoria do Produto</label>
+                        <select asp-for="Categoria_id" id="cate" required>
+                               @await Component.InvokeAsync("CategoriaView", 2)
+                        </select>
+                        <label for="Imagem">Fotos</label>
+                        <input asp-for="Imagem" type="file" id="fotoVideo"> 
+                        @*<input type="checkbox" id="euLi2" required>
+                        <label>
+                            Eu li e aceito todos os termos de postagem
+                            de produtos.
+                        </label>*@
+                    </fieldset>
+                </div>
+                <div class="confirma">
+                    <button type="submit" class="btn btn-outline-dark btn-sm btn-block">Confirmar</button>
+                    @*<a asp-route-id="@Model.Usuario_id" asp-controller="Usuario" asp-action="UsuarioDetails" class="btn btn-outline-dark btn-sm btn-block"  id="botaoA">Voltar ao Perfil</a>*@
+                    <a asp-controller="Produto" asp-action="Index" class="btn btn-outline-dark btn-sm btn-block" id="botaoA">Página Inicial</a>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+</body>

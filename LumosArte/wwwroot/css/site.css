@@ -1,0 +1,714 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px;
+}
+
+header, header a img#logo, nav.menu2 ul li, nav.menu2 ul li a, .action .menu p, h2, .gridContainer .hexagon .shape .content, h2.mb-0, h3.mb-0 {
+    text-align: center;
+}
+
+header {
+    background: white;
+}
+
+    header a img#logo {
+        width: 60%;
+    }
+
+
+/*/ nav /*/
+/*nav.menu2 ul {
+    display: flex;
+}
+
+#item1, #item2, #item3, #item4, #item5, #item6 {
+    border: #fff solid 1px;
+}
+
+nav.menu2 ul li, nav.menu2 ul li a {
+    background-color: rgb(230, 168, 188);
+    width: 100%;
+    padding: 10px 10px;
+    margin: 0 0 0 -30px;
+    color: white;
+    font-size: 17pt;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu2 li:hover ul, .menu2 li.over ul {
+    display: block;
+}
+
+nav.menu2 ul li#item2 ul#sub > li {
+    position: absolute;
+    display: none;
+    border-bottom: 15px;
+    width: 23.8%;
+    margin: 10px -43px;
+    z-index: 1;
+    border: white solid 1px;
+}
+
+#subItem1 > a, #subItem2 > a, #subItem3 > a, #subItem4 > a {
+    font-size: 15px;
+    padding-left: 40px;
+}
+
+nav.menu2 ul li ul#sub li#subItem2 {
+    margin-top: 70px;
+}
+
+nav.menu2 ul li ul#sub li#subItem3 {
+    margin-top: 130px;
+}
+
+nav.menu2 ul li ul#sub li#subItem4 {
+    margin-top: 190px;
+}*/
+
+
+nav.menu2 ul {
+    display: flex;
+}
+
+    nav.menu2 ul li, nav.menu2 ul li a {
+        background-color: rgb(230, 168, 188);
+        width: 100%;
+        padding: 10px 10px;
+        color: white;
+        font-size: 17pt;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: bold;
+        position: relative;
+    }
+
+        nav.menu2 ul li:hover > ul {
+            display: block;
+        }
+
+        nav.menu2 ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            z-index: 1;
+        }
+
+            nav.menu2 ul li ul li a {
+                display: block;
+                padding: 10px 0;
+                color: white;
+                font-size: 15px;
+                text-decoration: none;
+            }
+
+            nav.menu2 ul li ul li:hover a {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+
+
+
+
+
+/*/ banner /*/
+main div.banner img {
+    width: 100%;
+    height: 250px;
+}
+
+/*/ usuario /*/
+.action {
+    position: fixed;
+    top: 10px;
+    right: 30px;
+    z-index: 1;
+}
+
+    .action .profile {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+        .action .profile img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    .action .menu {
+        position: absolute;
+        top: 120px;
+        right: 10px;
+        padding: 0px 10px;
+        background: #fff;
+        width: 200px;
+        box-sizing: 0 5px 25px /*rgba(0,0,0,0.1)*/;
+        border-radius: 15px;
+        transition: 0.5s;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+        .action .menu.active {
+            top: 60px;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .action .menu::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: 28px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            transform: rotate(45deg);
+        }
+
+        .action .menu p {
+            width: 100%;
+            padding: 10px 0;
+            font-weight: 500;
+            font-size: 18px;
+            color: #555;
+            line-height: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .action .menu span {
+            font-size: 14px;
+            color: #cecece;
+            font-weight: 400;
+        }
+
+        .action .menu ul li {
+            list-style: none;
+            padding: 5px 0;
+            margin: 0 0 0 -30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            direction: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .action .menu ul li img {
+                width: 20px;
+                margin-right: 10px;
+                opacity: 0.5;
+                transition: 0.5s;
+            }
+
+            .action .menu ul li:hover img {
+                opacity: 1;
+            }
+
+            .action .menu ul li a {
+                display: inline-block;
+                text-decoration: none;
+                color: #555;
+                font-weight: 500;
+                transition: 0.5s;
+            }
+
+            .action .menu ul li:hover a {
+                color: rgb(177, 137, 33);
+            }
+
+/*/ footer /*/
+footer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    background: rgb(89, 210, 215);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: justify;
+}
+
+    footer .rodape {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+        footer .rodape .sobre {
+            width: 40%;
+        }
+
+        footer .rodape .links footer .rodape .contato {
+            width: 40%;
+        }
+
+        footer .rodape h4 {
+            position: relative;
+            color: rgb(10, 10, 10);
+            font-size: 15pt;
+            margin-bottom: 20px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            margin: 0 0 30px 20px;
+        }
+
+            footer .rodape h4::before {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 70px;
+                height: 2px;
+                background-color: rgb(239, 162, 179);
+            }
+
+    footer p {
+        color: rgb(43, 41, 41);
+        margin-left: 15px;
+    }
+
+    footer div p.cop {
+        margin: 0 0 0 500px;
+        padding: 10px;
+    }
+
+.sci {
+    margin-top: 20px;
+    display: flex;
+}
+
+    .sci li {
+        list-style: none;
+    }
+
+        .sci li a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+            .sci li a:hover {
+                background: rgb(239, 162, 179);
+            }
+
+.links {
+    position: relative;
+    width: 25%;
+}
+
+    .links ul li {
+        margin-left: -10px;
+        margin-top: 10px;
+        list-style: none;
+    }
+
+        .links ul li a {
+            color: rgb(43, 41, 41);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+            .links ul li a:hover {
+                color: #fff;
+            }
+
+.contato {
+    width: calc(35% - 60px);
+    margin-right: 0 !important;
+}
+
+    .contato .info {
+        position: relative;
+        margin-top: 10px;
+        margin-left: -20px;
+    }
+
+        .contato .info li {
+            display: flex;
+            margin-bottom: 5px;
+        }
+
+            .contato .info li span:nth-child(1) {
+                color: rgb(7, 7, 7);
+                font-size: 20px;
+                margin-right: 10px;
+            }
+
+footer li span {
+    color: rgb(43, 41, 41);
+}
+
+.contato .info li a {
+    color: rgb(43, 41, 41);
+    text-decoration: none;
+}
+
+    .contato .info li a:hover {
+        color: #fff;
+    }
+
+/*/ main /*/
+h1 {
+    background-color: rgb(230, 168, 188);
+    margin: 15px 0 5px 0;
+    padding: 20px;
+    font-size: 20pt;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    background-color: rgb(239, 162, 179);
+    margin: 10px 0;
+    padding: 30px;
+    font-size: 30pt;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+main section.content div.gridContainer div.hexagon div.shape div.content div a {
+    text-decoration: none;
+    color: white;
+}
+
+.gridContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+    .gridContainer .hexagon {
+        position: relative;
+        width: 30%;
+        height: 400px;
+        margin: 50px 20px 70px;
+    }
+
+        .gridContainer .hexagon::before {
+            content: '';
+            position: absolute;
+            bottom: -70px;
+            width: 100%;
+            height: 60px;
+            background: radial-gradient(rgba(0,0,0,0.15), transparent, transparent);
+            border-radius: 50%;
+            transition: 0.5s;
+        }
+
+        .gridContainer .hexagon:hover::before {
+            opacity: 0.8;
+            transform: scale(0.8);
+        }
+
+        .gridContainer .hexagon .shape {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            clip-path: stroke-box;
+        }
+
+        .gridContainer .hexagon:hover .shape {
+            transform: translateY(-30px);
+        }
+
+        .gridContainer .hexagon .shape img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gridContainer .hexagon .shape .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(45deg, rgb(239, 162, 179),rgb(177, 137, 33));
+            color: #fff;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .gridContainer .hexagon:hover .shape .content {
+            opacity: 1;
+        }
+
+div.menuIcone span.material-symbols-outlined {
+    display: none;
+}
+
+div.naoHa {
+    margin: 200px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+/*/user/*/
+
+#perfil2 > div {
+    height: 100%;
+}
+
+    #perfil2 > div > div > header > div > div.profile.mr-3 {
+        height: 0;
+    }
+
+/*#redes2 {
+    margin-left: 40%;
+    height: 20px;
+}*/
+
+#perfil2 > div > div > header > div > div.profile.mr-3 > img {
+    margin-top: -10px;
+    margin-left: -70%;
+    text-align: end; /*flex-end;*/
+}
+
+#perfil2 > div > div > header > div > div.media-body.mb-5.text-white > h1 {
+    margin-left: 20%;
+}
+
+.profile-head {
+    transform: translateY(5rem)
+}
+
+.cover {
+    background: linear-gradient(45deg,rgb(239, 162, 179),rgb(177, 137, 33));
+    height: 400px;
+    background-repeat: no-repeat;
+}
+
+div#perfil1 {
+    background: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+h2.mb-0 {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 15pt;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+div img.img-thumbnail {
+    margin-top: -10px;
+}
+
+img.img-fluid {
+    width: 100%;
+    height: 100%;
+}
+
+h3.mb-0 {
+    font-size: 15pt;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+/*/editar perfil /*/
+
+span.editar-perfil {
+    text-align: center;
+    padding: 0 0 0 42%;
+    font-size: 20pt;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+}
+div.foto-perfil {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-shrink:0;
+}
+
+.nome-perfil {
+    width: 100%;
+    padding-left: 30px;
+    font-size: 20pt;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+}
+
+div#tela2 {
+    background: linear-gradient(45deg, rgb(239, 162, 179),rgb(177, 137, 33));
+    margin-bottom: -20px;
+    border: #000 solid 1px;
+}
+
+img.imgPerfil {
+    width: 150px;
+}
+
+#tela2 h1 {
+    font-size: 30px;
+    color: rgb(230, 168, 188);
+    font-weight: bold;
+}
+
+label.labelInput input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+
+.labelInput {
+    border: 2px solid #AAA;
+    border-radius: 4px;
+    padding: 2px 5px;
+    margin: 2px 0;
+    background: white;
+    display: inline-block;
+    text-align: center;
+    width: 150px;
+}
+
+    .labelInput:hover {
+        background: #CCC;
+    }
+
+    .labelInput:active {
+        background: #CCF;
+    }
+
+/*/paginaItem/*/
+body > main section.conteudoPostagem {
+    display: flex;
+    padding: 0 10px;
+    width: 100%;
+}
+
+    body > main section.conteudoPostagem h1 {
+        color: rgb(177, 137, 33);
+        text-align: center;
+    }
+
+    body > main section.conteudoPostagem img {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    body > main section.conteudoPostagem div {
+        width: 98%;
+    }
+
+        body > main section.conteudoPostagem div.conteudoP {
+            width: 40%;
+            padding: 10px;
+        }
+
+body > main section > div.conteudP > p:nth-child(4) > a {
+    color: rgb(177, 137, 33);
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+
+#redes {
+    text-align: center;
+    padding-left: 250px;
+}
+
+/* post */
+section.post {
+    background: linear-gradient(45deg, rgb(239, 162, 179),rgb(177, 137, 33));
+    padding: 10px;
+    text-align: center;
+}
+
+    section.post a {
+        text-decoration: none;
+        color: white;
+    }
+
+@media all {
+    footer {
+        width: auto;
+        display: block;
+    }
+
+    div.action {
+        display: block;
+        position: absolute;
+    }
+
+    body main div.banner {
+        display: inline-block;
+        width: 100%;
+    }
+
+    body main section {
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    * {
+        font-size: 15px;
+    }
+
+    nav.menu2 ul {
+        display: inline-block;
+        width: 100%;
+    }
+
+        nav.menu2 ul li ul#sub li {
+            /*text-align: none;*/
+            position: relative;
+            display: none;
+            /*padding: 4px 199.5px;
+            margin: 10px 0;*/
+            display: block;
+            margin-left: -10px;
+        }
+
+        nav.menu2 ul li > ul {
+            position: relative;
+        }
+
+    .menuIcone {
+        background: rgb(239, 162, 179);
+        text-align: center;
+        padding: 10px;
+    }
+
+    div.menuIcone span.material-symbols-outlined {
+        display: block;
+    }
+}

@@ -1,0 +1,70 @@
+﻿@model Usuario
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Usuario Cadastro</title>
+    <link rel="stylesheet" href="~/css/reset.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site-form.css" asp-append-version="true" />
+    
+</head>
+<body>
+
+    <main>
+        <form asp-controller="Usuario" asp-action="UsuarioCadastro" method="post" id="cadastro">
+            <fieldset>
+                <legend class="principal">- Cadastre-se -</legend>
+                <div class="dados">
+                    <fieldset>
+                        <legend>Dados Pessoais</legend>
+                        <label for="Primeiro_nome">Primeiro Nome</label>
+                        <input asp-for="Primeiro_nome" type="text" placeholder="digite o seu primeiro nome" id="nome1" required>
+                        <label for="Ultimo_nome">Ultimo Nome</label>
+                        <input asp-for="Ultimo_nome" type="text" placeholder="digite o seu último nome" id="nome2" required>
+                        <label for="Data_nascimento">Data de Nascimento</label>
+                        <input asp-for="Data_nascimento" type="date" id="data" required>
+                    </fieldset>
+                </div>
+                <div class="dados">
+                    <fieldset>
+                        <legend>Contato</legend>
+                        <label for="Email">E-mail</label>
+                        <input asp-for="Email" type="email" placeholder="digite o seu e-mail" id="email" required>
+                        <label for="Telefone">Telefone</label>
+                        <input asp-for="Telefone" type="number" placeholder="digite o seu telefone principal" id="tel" required>
+                    </fieldset>
+                </div>
+                <div class="dados">
+                    <fieldset>
+                        <legend>Detalhes do Usuário</legend>
+                        <label for="Nome_usuario">Nome Usuário</label>
+                        <input asp-for="Nome_usuario" type="text" id="nomeU" placeholder="digite o nome de usuário" required>
+                        <label for="Senha">Senha</label>
+                        <input asp-for="Senha" type="password" id="senha" placeholder="digite uma senha" required>
+                    </fieldset>
+                </div>
+                @*
+                <input type="checkbox" id="euLi" required>
+                <label>Eu li e aceito todos os termos de usuário</label>
+                *@
+                <div class="confirma">
+                    <button type="submit" class="btn btn-outline-dark btn-sm btn-block">Confirmar</button>
+                    <a asp-controller="Produto" asp-action="Index" id="botaoA" class="btn btn-outline-dark btn-sm btn-block">Página Inicial</a>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+</html>

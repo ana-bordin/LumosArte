@@ -1,0 +1,79 @@
+﻿@model Produto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lumos Arte - Editar Produto</title>
+    <link rel="stylesheet" href="~/css/reset.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site-form.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+
+</head>
+
+<body>
+    <header class="header">
+        <a asp-area="" asp-controller="Produto" asp-action="Index">
+            <img src="~/images/Logo.png" alt="Logo da LumosArte" id="logo">
+        </a>
+    </header>
+    <main>
+        <form asp-controller="Produto" asp-action="ProdutoEdit" method="post" id="cadastro">
+            <fieldset>
+                <legend class="principal">- Edite Seu Produto -</legend>
+                <div class="dados">
+                    <fieldset>
+                        <legend>Dados do Produto</legend>
+                        <label for="Nome">Nome do Produto</label>
+                        <input asp-for="Nome" type="text" value="@Model.Nome" id="produto" required>
+                        <label for="Descricao">Descrição do Produto</label>
+                        <textarea asp-for="Descricao" rows="4" cols="25" class="form-control" value="@Model.Descricao"></textarea>
+                        <label for="Categoria_Id">Categoria do Produto</label>
+                        <select asp-for="Categoria_id" id="cate" value="@Model.Categoria_id" required>
+                            @await Component.InvokeAsync("CategoriaView", 2)
+                        </select>
+                        <label for="Imagem">Foto</label>
+                        <input asp-for="Imagem" type="file" value="@Model.Imagem" id="fotoVideo">
+                        @*<label>Link do Artista</label>
+                        <input type="url" placeholder="informe o jeito dos usuários te encontrarem" id="linkC" required>*@
+
+                    </fieldset>
+                </div>
+                <div class="confirma">   
+                    <button type="submit" onclick="return salvar()" class="btn btn-outline-dark btn-sm btn-block" style="width: 30%">
+                        Salvar Alterações
+                    </button>
+                    <a asp-controller="Produto" asp-action="Index" class="btn btn-outline-dark btn-sm btn-block" id="botaoA" style="margin:auto; width: 30%">Página Inicial</a>
+                    @*<a asp-route-id="@Model.Usuario_id" asp-controller="Usuario" asp-action="UsuarioDetails" class="botaoA">Voltar ao Perfil</a>*@
+                    <a role="button" class="btn btn-outline-dark btn-sm btn-block" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="botaoA" style="margin:auto; width: 30%">
+                        Excluir Produto
+                    </a>
+                </div>
+            </fieldset>
+        </form>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Excluir Produto</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Tem certeza que deseja prosseguir com a exclusão desse produto?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a role="button" class="btn btn-outline-danger" asp-area="" asp-route-id="@Model.Id" asp-controller="Produto" asp-action="ProdutoDelete">Excluir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+</body>

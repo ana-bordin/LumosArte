@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Ajuda>
+
+@{
+    ViewData["Title"] = "Todas Perguntas";
+}
+
+<h1>TODAS AS PERGUNTAS</h1>
+<div>
+@foreach (var item in Model)
+{
+        <div style="background: linear-gradient(45deg, rgba(239, 162, 179, 0.3),rgba(177, 137, 33, 0.2)); color: black;
+            margin: 20px 0; border-radius: 0.37rem;">
+            <h3 style="font-size: 15pt; text-transform: uppercase; font-weight: bold; text-align: center; color: white;
+                background: rgb(239, 162, 179);border-radius: 0.37rem; padding: 15px 0;">
+                @item.Duvida
+            </h3>
+            <p style="font-size: 18px; padding: 20px 50px;">@item.Resposta</p>
+        </div>
+}
+</div>
+
+
+
+
+
+
+
+
+

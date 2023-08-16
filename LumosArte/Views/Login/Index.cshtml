@@ -1,0 +1,56 @@
+﻿@model LumosArte.Models.Login
+@{
+    Layout = null;
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-light btn-sm close-alert" arial-label="Close">x</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lumos Arte - LoginIn</title>
+    <link rel="stylesheet" href="~/css/reset.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site-form.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header class="header">
+        <a asp-area="" asp-controller="Produto" asp-action="Index">
+            <img src="~/images/Logo.png" alt="Logo da LumosArte" id="logo">
+        </a>
+    </header>
+    <main>
+        <form asp-controller="Login" asp-action="Entrar" method="post" id="cadastro">
+            <fieldset>
+                <legend class="principal">- Entre -</legend>
+                <div class="dados">
+                    <fieldset>
+                        <label for="login">Usuario</label>
+                        <input asp-for="Usuario" placeholder="digite o seu nome de usuario" id="email4" required>
+                        <label for="login">Senha</label>
+                        <input asp-for="Senha" type="password" id="senha2" placeholder="digite uma senha" required>
+                        @Html.ValidationMessageFor(x => x.Senha)
+
+                        @* <a href="esqueciSenha.html" class="botaoB">Esqueci a senha</a>*@
+
+                        <button type="submit" class="btn btn-outline-dark btn-sm btn-block">Confirmar</button>
+                        <a asp-controller="Usuario" asp-action="UsuarioCadastro" class="btn btn-outline-dark btn-sm btn-block" id="botaoA">Criar Conta</a>
+                    </fieldset>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+</body>
+
+<script src="~\lib\jquery-validation\dist\jquery.validate.js" asp-append-version="true"></script>
+<script src="~\lib\jquery-validation\dist\additional-methods.js" asp-append-version="true"></script>
+<script src="~\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" asp-append-version="true"></script>

@@ -1,0 +1,31 @@
+﻿@model Usuario
+
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<div class="action">
+    <div class="profile" onclick="menuToggle();">
+        <img src="~/Images/@Model.Foto_Perfil" alt="usuário">
+    </div>
+    <div class="menu">
+        <p>
+            @Model.Nome_usuario<br>
+            <span>Artista local</span>
+        </p>
+        <ul>
+            <li>
+                <img src="~/Images/user.png" alt="imagem de perfil">
+                <a asp-area="" asp-route-id="@Model.Id" asp-controller="Usuario" asp-action="UsuarioDetails">Meu perfil</a>
+            </li>
+            <li>
+                <img src="~/Images/edit.png" alt="editar perfil">
+                <a asp-controller="Usuario" asp-action="UsuarioEdit">Editar perfil</a>
+            </li>
+            <li>
+                <img src="~/Images/exit.png" alt="sair do perfil">
+                <a asp-controller="Login" asp-action="Sair">Sair</a>
+            </li>
+        </ul>
+    </div>
+</div>

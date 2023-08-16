@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Menu";
+}
+
+<div class="action">
+    <div class="profile" onclick="menuToggle();">
+        <img src="~/Images/user.png" alt="usuário">
+    </div>
+    <div class="menu">
+        <p>
+            <br>
+        </p>
+        <ul>
+            <li>
+                <img src="~/Images/cadastrar.png" alt="cadastrar">
+                <a asp-controller="Usuario" asp-action="UsuarioCadastro">Novo Usuário</a>
+            </li>
+            <li>
+                <img src="~/Images/loginIn.png" alt="entrar">
+                <a asp-controller="Login" asp-action="Index">Entrar</a>
+            </li>
+
+        </ul>
+    </div>

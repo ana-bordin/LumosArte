@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Produto>
+
+@{
+    ViewData["Title"] = "Produtos Por Usuario";
+}
+
+<h1>- Produtos Do usuario -</h1>
+
+<section class="content">
+    <div class="gridContainer">
+        @if(Model != null && Model.Any())
+        {
+            foreach (Produto produto in Model)
+            {
+                <div class="hexagon">
+                    <div class="shape">
+                        <img src="~/Images/@produto.Imagem" alt="">
+                        <div class="content">
+                            <div>
+                                <a asp-route-id="@produto.Id" asp-controller="Produto" asp-action="ProdutoDetails">
+                                    <h3>@produto.Nome</h3>
+                                    <p>@produto.Descricao</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</section>

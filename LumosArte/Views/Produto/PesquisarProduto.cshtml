@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Produto>
+@{
+    ViewData["Title"] = "Pesquisar Produto";
+    string busca = ViewBag.SearchTerm;
+}
+<div>    
+    <a asp-controller="Usuario" asp-action="PesquisarUsuario" asp-route-searchTerm="@busca" class="btn btn-outline-dark btn-sm btn-block" style=" padding: 6px; margin-top: -5px; font-size: 20px;
+        width: 80%; cursor: pointer; text-shadow: 0 1px 1px #333; -webkit-border-radius: 5px; border-radius: 5px;
+        transition: all 0.2s linear;">
+        Ver Usuários
+    </a>
+</div>
+<section class="content">
+    <div class="gridContainer">
+        @if (Model != null && Model.Any())
+        {
+            foreach (Produto produto in Model)
+            {
+                <div class="hexagon">
+                    <div class="shape">
+                        <img src="~/Images/@produto.Imagem" alt="">
+                        <div class="content">
+                            <div>
+                                <a asp-route-id="@produto.Id" asp-controller="Produto" asp-action="ProdutoDetails">
+                                    <h3>@produto.Nome</h3>
+                                    <p>@produto.Descricao</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</section>

@@ -1,0 +1,12 @@
+﻿@model List<Categoria>
+
+@{
+    ViewData["Title"] = "Categoria";
+}
+
+@foreach(var categoria in Model.Select((value, index) => new{Value=value, Index = index}))
+{
+    <li id="subItem@(categoria.Index+1)">
+        <a asp-area="" asp-route-id="@categoria.Value.Id" asp-controller="Produto" asp-action="GetProdutosPorCategoria">@categoria.Value.Nome</a>
+    </li>
+}

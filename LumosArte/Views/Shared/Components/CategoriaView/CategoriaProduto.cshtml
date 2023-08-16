@@ -1,0 +1,9 @@
+﻿@model List<Categoria>
+
+@{
+    ViewData["Title"] = "CategoriaProduto";
+}
+@foreach (var categoria in Model.Select((value, index) => new { Value = value, Index = index }))
+{
+    <option value="@categoria.Value.Id">@categoria.Value.Nome</option>
+}

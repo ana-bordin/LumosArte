@@ -1,0 +1,6 @@
+﻿@model Usuario
+
+@{
+    ViewData["Title"] = "Usuario";
+}
+<a asp-area="" asp-route-id="@Model.Id" asp-controller="Usuario" asp-action="UsuarioVisualizacao" class="btn btn-outline-dark btn-sm btn-block">@Model.Nome_usuario</a>

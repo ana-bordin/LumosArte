@@ -1,0 +1,119 @@
+﻿@model Usuario
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lumos Arte - Perfil Editar</title>
+    <link rel="stylesheet" href="~/css/reset.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <main>
+        <div class="container rounded bg-white mt-5 mb-5">
+            <div class="row"> 
+                <div class="col-md-5">
+                    <form asp-controller="Usuario" asp-action="UsuarioEdit" method="post">
+                        <div class="p-3 py-5" id="tela2">
+                            <div class="justify-content-between align-items-center mb-3">
+                                <span class="editar-perfil">Editar Perfil</span>
+                            </div>
+
+                            <div class="foto-perfil">
+                                <img class="imgPerfil" alt="..."
+                                         src="~/Images/@Model.Foto_Perfil">
+                                <span class="nome-perfil">@Model.Nome_usuario</span>
+                            </div>
+                            <div>
+                                <label class="labelInput">
+                                    <input asp-for="Foto_Perfil" type="file" />
+                                    <span>Trocar Foto</span>
+                                </label>
+                            </div>
+
+
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label class="labels">Primeiro nome</label>
+                                    <input asp-for="Primeiro_nome" type="text" class="form-control" value="@Model.Primeiro_nome"
+                                           id="nome3" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Ultimo Nome</label>
+                                    <input asp-for="Ultimo_nome" type="text" class="form-control" value="@Model.Ultimo_nome" id="nome4"
+                                           required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Data de Nascimento</label>
+                                    <input asp-for="Data_nascimento" type="date" class="form-control" id="data2" value="@Model.Data_nascimento">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Telefone Principal</label>
+                                    <input asp-for="Telefone" type="text" class="form-control" value="@Model.Telefone" id="tel2"
+                                           required>
+                                </div>
+                                @*<div class="col-md-12">
+                                <label class="labels">Estado</label>
+                                <input asp-for="" type="text" class="form-control" placeholder="Estado" id="estado" value="">
+                                </div>
+                                <div class="col-md-12">
+                                <label class="labels">Cidade</label>
+                                <input type="text" class="form-control" placeholder="Cidade" id="cidade" value="">
+                                </div>
+                                <div class="col-md-12">
+                                <label class="labels">País</label>
+                                <input type="text" class="form-control" placeholder="País" id="pais" value="">*@
+                                <div class="col-md-12">
+                                    <label class="labels">E-mail</label>
+                                    <input asp-for="Email" type="text" class="form-control" id="email2"
+                                           value="@Model.Email">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Sobre</label>
+                                    <textarea asp-for="Descricao" rows="4" cols="30" class="form-control"
+                                              value="@Model.Descricao"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5 text-center">
+                            <button type="submit" class="btn btn-outline-dark btn-sm btn-block"> Salvar Alterações </button>
+                            <a asp-controller="Produto" asp-action="Index" class="btn btn-outline-dark btn-sm btn-block" id="botaoA">Página Inicial</a>
+                            <a asp-controller="Usuario" asp-action="UsuarioDetails" class="btn btn-outline-dark btn-sm btn-block" id="botaoA">Voltar ao Perfil</a>
+                            <a role="button" class="btn btn-outline-dark btn-sm btn-block" id="botaoA" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Excluir perfil </a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Button trigger modal -->
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="modal-title fs-5" id="staticBackdropLabel">Exclusão de perfil</span>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Tem certeza que deseja prosseguir com a exclusão do seu perfil?
+                                Após a exclusão todos seus produtos tambem serão excluidos e não há maneira de reverter essa ação
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-dark btn-sm btn-block" data-bs-dismiss="modal">Cancelar</button>
+                                <a role="button" class="btn btn-outline-dark btn-sm btn-block" id="botaoA" asp-area="" asp-controller="Usuario" asp-action="UsuarioDelete">Excluir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+
+</body>

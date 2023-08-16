@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Produto>
+
+@{
+    ViewData["Title"] = "ProdutoPorUsuario";
+}
+
+@if (Model != null && Model.Any())
+{
+    foreach (Produto produto in Model)
+    {
+        <div class="col-lg-6 mb-2 pr-lg-1">
+            <img src="~/Images/@produto.Imagem" alt="" class="img-fluid">
+        </div>
+    }
+}

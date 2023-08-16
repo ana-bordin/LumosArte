@@ -1,0 +1,68 @@
+﻿@model Usuario
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Perfil</title>
+    <link rel="stylesheet" href="~/css/reset.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site-doc.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="row py-5 px-4" id="perfil1">
+        <div class="col-md-5 mx-auto">
+            <div class="bg-white shadow rounded overflow-hidden">
+                <header class="px-4 pt-0 pb-4 cover">
+                    <div class="media align-items-end profile-head">
+                        <div class="profile mr-3">
+                            <img src="~/Images/@Model.Foto_Perfil"
+                                 alt="..." width="130" class="img-thumbnail">
+                        </div>
+                        <div class="media-body mb-5 text-white">
+                            <h1 class="mt-0 mb-0" style="
+                                background-color: unset;">
+                                - @Model.Nome_usuario -</h1>
+
+                            <a asp-area="" asp-controller="Usuario" asp-action="UsuarioEdit" class="btn btn-outline-dark btn-sm btn-block">
+                                Editar Perfil
+                            </a>
+                            <a asp-area="" asp-controller="Produto" asp-action="ProdutoCadastro" class="btn btn-outline-dark btn-sm btn-block">
+                                Publicar
+                            </a>
+                            <a asp-controller="Produto" asp-action="Index" class="btn btn-outline-dark btn-sm btn-block">
+                                Página Inicial
+                            </a>
+                        </div>
+                    </div>
+                </header>
+                <nav>
+                    <div class="px-4 py-3">
+                        <h2 class="mb-0">Sobre</h2>
+                        <div class="p-4 rounded shadow-sm bg-light">
+                            <p class="font-italic mb-0">@Model.Descricao</p>
+                        </div>
+                    </div>
+                </nav>
+                <main class="py-4 px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h3 class="mb-0">Conteúdos Recentes</h3>
+
+                        <a asp-route-id="@Model.Id" asp-controller="Produto" asp-action="MeusProdutos" class="btn btn-link text-muted">Mostrar Tudo</a>
+                    </div>
+                    <div class="row">
+                        @await Component.InvokeAsync("ProdutoView", @Model.Id)
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

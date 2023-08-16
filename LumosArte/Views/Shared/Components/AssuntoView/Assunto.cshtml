@@ -1,0 +1,10 @@
+﻿@model List<Assunto>
+
+@{
+    ViewData["Title"] = "Assunto";
+}
+
+@foreach (var assunto in Model.Select((value, index) => new { Value = value, Index = index }))
+{
+    <option value="@assunto.Value.Id">@assunto.Value.Nome</option>
+}

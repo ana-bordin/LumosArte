@@ -1,0 +1,41 @@
+﻿@model List<Produto>;
+
+@{
+    ViewData["Title"] = "Página Principal";
+}
+<form asp-controller="Produto" asp-action="PesquisarProduto" method="get" id="cadastro" style="
+      padding: 10px;">
+    <input type="text" name="searchTerm" placeholder="O que está procurando?" style="text-align: center; font-size: 20px;
+        width: 80%;padding: 6px; border: 1px solid #b2b2b2;border-radius: 3px;-webkit-box-shadow: 0px 1px 4px 0px
+        rgba(168, 168, 168, 0.6) inset; box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+        -webkit-transition: all 0.2s linear; transition: all 0.2s linear; flex-direction: row-reverse;flex-wrap: nowrap;" />
+    <button type="submit" class="btn btn-outline-dark btn-sm btn-block" style=" padding: 6px; margin-top: -5px; font-size: 20px;
+        width: 19%; cursor: pointer; text-shadow: 0 1px 1px #333; -webkit-border-radius: 5px; border-radius: 5px;
+        transition: all 0.2s linear;">
+        Pesquisar
+    </button>
+</form>
+<section class="content">
+    <div class="gridContainer">
+        
+        @if(Model != null && Model.Any())
+        {
+            foreach (Produto produto in Model)
+            {
+                <div class="hexagon">
+                    <div class="shape">
+                        <img src="~/Images/@produto.Imagem" alt="">
+                        <div class="content">
+                            <div>
+                                <a asp-route-id="@produto.Id" asp-controller="Produto" asp-action="ProdutoDetails">
+                                    <h3>@produto.Nome</h3>
+                                    <p>@produto.Descricao</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</section>
